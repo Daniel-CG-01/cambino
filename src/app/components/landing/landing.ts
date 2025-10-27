@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Home } from '../home/home';
 
 @Component({
   selector: 'app-landing',
@@ -9,5 +8,12 @@ import { Home } from '../home/home';
   standalone: true
 })
 export class Landing {
+  
+  constructor() {
+    console.log('constructor');
+  }
 
+  ngOnInit() {
+    console.log('ngOnInit');
+  }
 }
