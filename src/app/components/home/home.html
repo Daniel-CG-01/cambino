@@ -1,106 +1,19 @@
 <h1>Este es el componente home</h1>
 
-<h2>Vamos a poner ejemplos de comunicación del controlador (ts) a la plantilla (html)</h2>
+<!-- Enlazar la página de ejercicios -->
+<a href="ejer01">Ir al ejercicio 01 de la clase</a><br>
+<a href="landing">Ir a la página de landing</a><br><br>
 
-<h3>Interpolación</h3>
-<p>Hola {{ nombre }}</p>
+<hr>
 
-<!-- Otras formas de interpolación -->
-<p>Hola {{ nombre.toUpperCase() }}</p>
-<p>{{ 'Hola ' + nombre }}</p>
-<p>Hola {{ nombre.length }} (número de letras de mi nombre)</p>
+<h1>Hola {{ nombreUsuario }}</h1>
+<input type="text" placeholder="Escribe tu nombre" [value]="nombreUsuario" (input)="cambiarNombre($event.target.value)"><br>
 
-<p>Suma: 25 + 45 = {{ 25 + 45 }}</p>
-<p>Suma: 25 + 45 = {{ suma(25, 45) }}</p>
+<!-- <a href="saludoenrutado">Ir al componente saludo enrutado a que me salude</a><br> (NO FUNCIONA PORQUE NO TIENE EL PARÁMETRO) -->
 
-<p>Suma: 15 + 15 = {{ suma(15, 15) }}</p>
+<h3>¡Ojo! Hay 2 tipos de enlace:</h3>
 
-<h3>Atributos</h3>
-<img src="https://i.pinimg.com/736x/37/ac/93/37ac93d784624df1fdcffc55168502d4.jpg"
-     alt="Imagen de Homer" title="{{ titulo }}" [width]="ancho">
+<a href="saludoenrutado/{{ nombreUsuario }}">Primero: Ir al componente saludo enrutado a que me salude</a><br>
+<a [href]="'saludoenrutado/' + nombreUsuario">Segundo: Ir al componente saludo enrutado a que me salude (USANDO BINDING)</a><br>
 
-<h3>Clases</h3>
-<div [ngClass]="{error: hasError}">Esto es un error</div>
-<div [ngClass]="{error: !hasError}">Esto NO es un error</div>
-<div [ngClass]="{error: noHayError()}">Esto NO es un error</div>
-<div [ngClass]="{error: siHayError()}">Esto es un error</div>
-
-<h2>Vamos a poner ejemplos de comunicación del controlador (html) al controlador (ts)</h2>
-
-<button (click)="cambiarNombre()">Cambiar Nombre</button><br>
-
-Nombre1: <input type="text" (input)="cambiarNombreInput($event)" /><br>
-
-<h2>Double Data Binding</h2>
-
-Nombre2: <input [value]="nombre" (input)="cambiarNombreInput($event)" /><br>
-<p>Nombre actual: {{ nombre }}</p>
-
-<h1>Control del flujo en la plantilla</h1>
-
-<h3>Directiva *ngIf</h3> <!-- Mejor @if @else -->
-
-<div *ngIf="noHayError()">Este es un mensaje de error (DEPRECADO)</div>
-<div *ngIf="siHayError()">Este es un mensaje de éxito (DEPRECADO)</div>
-<div *ngIf="false">Este es un mensaje de error (DEPRECADO)</div>
-<div *ngIf="true">Este es un mensaje de éxito (DEPRECADO)</div>
-
-@if (noHayError()) {
-    <div>Este es un mensaje de error</div>
-} @else {
-    <div>Este es un mensaje de éxito</div>
-}
-
-@if (false) {
-    <div>Este es un mensaje de error</div>
-} @else {
-    <div>Este es un mensaje de éxito</div>
-}
-
-@if (mostrar) {
-    <h3>Mostrando el contenido1</h3>
-} @else {
-    <h3>Mostrando el contenido2</h3>
-}
-
-<button (click)="flipMostrar()">Flip Mostrar</button>
-
-<h3>Directiva *ngFor</h3>
-
-<ul>
-    <li *ngFor="let item of items; let i = index">{{ i + 1 }} - {{ item }}</li> <!-- DEPRECADO -->
-</ul>
-
-<ul>
-    @for (item of items; track item; let i = $index) {
-        <li>{{ i + 1 }} - {{ item }}</li>
-    }
-</ul>
-
-@for (i of [0, 1, 2, 3, 4, 5]; track i) {
-    <p>Valor de i = {{ i }}</p>
-}
-
-<h3>Directiva switch</h3> <!-- Mejor @switch @case @default -->
-
-@switch(nombre) {
-    @case('Daniel') {
-        <p>Hola Daniel! Eres el administrados</p>
-    }
-    @case('Alex') {
-        <p>Hola Alex! Eres el administrados</p>
-    }
-    @default {
-        <p>Hola invitado! Eres el administrados</p>
-    }
-}
-
-<h1>Ejemplo de expresiones en la plantilla</h1>
-
-<!-- ACABAR -->
-
-<!-- <p>Ejemplo complicado: {{ [1, 2, 3].map(n => n * 2).filter(n => n > 2) }}</p> -->
-
-<h1>Ejemplo de Pipes en la plantilla</h1>
-
-<!-- ACABAR -->
+<hr>
