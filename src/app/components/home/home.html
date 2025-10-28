@@ -13,7 +13,22 @@
 
 <h3>¡Ojo! Hay 2 tipos de enlace:</h3>
 
-<a href="saludoenrutado/{{ nombreUsuario }}">Primero: Ir al componente saludo enrutado a que me salude</a><br>
-<a [href]="'saludoenrutado/' + nombreUsuario">Segundo: Ir al componente saludo enrutado a que me salude (USANDO BINDING)</a><br>
+<ul>
+    <li>
+        <a href="saludoenrutado/{{ nombreUsuario }}">Primero: Ir al componente saludo enrutado a que me salude</a>
+    </li>
+    <li>
+        <a [href]="'saludoenrutado/' + nombreUsuario">Segundo: Ir al componente saludo enrutado a que me salude (USANDO BINDING)</a>
+    </li>
+    <li>
+        <button (click)="irASaludoEnrutado()">Tercero: Ir al componente saludo enrutado a que me salude (USANDO UN MÉTODO CON WINDOW)</button>
+    </li>
+    <li>
+        <button (click)="irASaludoEnrutado2()">Cuarto: Ir al componente saludo enrutado a que me salude (USANDO UN MÉTODO EN EL CONTROLADOR Y ROUTERLINK)</button>
+    </li>
+    <li>
+        <a [routerLink]="['/saludoenrutado', nombreUsuario]">Quinto: Ir al componente saludo enrutado a que me salude (USANDO ROUTERLINK EN PLANTILLA)</a>
+    </li>
+</ul>
 
 <hr>
