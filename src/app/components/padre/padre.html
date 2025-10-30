@@ -1,0 +1,11 @@
+<p>padre works!</p>
+
+<input type="text" placeholder="Escribe algo para mi hijo" [value]="mensajeHijoEnviadoDesdeElPadre" (input)="enviar($event.target.value)"><br>
+
+<h1>YO SOY TU PADRE</h1>
+
+<h2>Mi mensaje de hoy es el siguiente: {{ mensajeHijoEnviadoDesdeElPadre }}</h2>
+
+<app-hijo [mensajeHijoRecibidoDelPadre]="mensajeHijoEnviadoDesdeElPadre" (mensajeAlPadreDesdeElHijoEventEmitter)="recibirMensajeDelHijo($event)"></app-hijo>
+
+<h4>Mensaje del hijo: {{ mensajeRecibidoDelHijo }}</h4>
