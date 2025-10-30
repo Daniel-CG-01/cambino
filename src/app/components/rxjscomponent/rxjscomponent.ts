@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { concat, interval, merge, Observable, of, take } from 'rxjs';
+import { BehaviorSubject, concat, filter, interval, map, merge, Observable, of, Subject, take } from 'rxjs';
 
 class Persona {
   nombre: string = "";
@@ -165,15 +165,22 @@ export class Rxjscomponent {
     }, 5000);
   }
 
+  // A partir de dos observables los combino (con el merge) y me suscribo al resultado
   ejemplo09() {
     console.log('Ejecutando ejemplo 09 de RxJs');
-    const intervalo1$ = interval(1000);
-    const intervalo2$ = interval(1500);
+    const intervalo1$ = interval(810);
+    const intervalo2$ = interval(340);
 
     // Combinar con el operador merge los dos intervalos
     const combinado1$ = merge(intervalo1$, intervalo2$); // IMPORTANTE
     const combinado2$ = combinado1$.pipe(
-      take(10)
+      take(20), // Llegan números combinados, y voy a coger solo los 20 primeros
+
+      // Filtra todos los números pares
+      filter(numero => numero % 2 === 0),
+
+      // map para sumar 1 a cada número
+      map(numero => numero + 1)
     );
 
     // Suscripción
@@ -183,4 +190,82 @@ export class Rxjscomponent {
       complete: () => console.log('Flujo de datos completado')
     });
   }
+
+  // A partir de un observable nos suscribimos con dos suscriptores diferentes
+  ejemplo10() {
+    console.log('Ejecutando ejemplo 10 de RxJs');
+    const intervalo$ = interval(500);
+
+    // Suscriptor 1
+    const subscription1 = intervalo$.subscribe({
+      next: numero => console.log('Suscriptor 1 - Número recibido: ' + numero),
+      error: (err) => console.error('Suscriptor 1 - Error al recibir el número:', err),
+      complete: () => console.log('Suscriptor 1 - Flujo de datos completado')
+    });
+
+    // Suscriptor 2
+    const subscription2 = intervalo$.subscribe({
+      next: numero => console.log('Suscriptor 2 - Número recibido: ' + numero),
+      error: (err) => console.error('Suscriptor 2 - Error al recibir el número:', err),
+      complete: () => console.log('Suscriptor 2 - Flujo de datos completado')
+    });
+
+    setTimeout(() => {
+      subscription1.unsubscribe();
+      console.log('Desuscrito del observable de intervalo el subscriptor 1');
+    }, 5000);
+
+    setTimeout(() => {
+      subscription2.unsubscribe();
+      console.log('Desuscrito del observable de intervalo el subscriptor 2');
+    }, 8000);
+  }
+
+  // Concepto de subject
+
+  ejemplo11() {
+    console.log('Ejecutando ejemplo 11 de RxJs: SUBJECT');
+    const subject = new Subject<string>();
+
+    // Suscripción 1
+    subject.subscribe({
+      next: (value) => console.log('Suscripción 1: Valor recibido en el subject: ' + value),
+      complete: () => console.log('Suscripción 1: Flujo de datos completado en el subject')
+    });
+    subject.next('Hola');
+    subject.next('Mundo');
+
+    // Suscripción 2
+    subject.subscribe({
+      next: (value) => console.log('Suscripción 2: Valor recibido en el subject: ' + value),
+      complete: () => console.log('Suscripción 2: Flujo de datos completado en el subject')
+    });
+    subject.next('¡Saludos desde el subject!');
+    subject.complete();
+  }
+
+  ejemplo12() {
+    console.log('Ejecutando ejemplo 12 de RxJs: BEHAVIORSUBJECT');
+    const subject = new BehaviorSubject<string>('Valor inicial');
+
+    // Suscripción 1
+    subject.subscribe({
+      next: (value) => console.log('Suscripción 1: Valor recibido en el subject: ' + value),
+      complete: () => console.log('Suscripción 1: Flujo de datos completado en el subject')
+    });
+    subject.next('Hola');
+    subject.next('Mundo');
+
+    // Suscripción 2
+    subject.subscribe({
+      next: (value) => console.log('Suscripción 2: Valor recibido en el subject: ' + value),
+      complete: () => console.log('Suscripción 2: Flujo de datos completado en el subject')
+    });
+    subject.next('¡Saludos desde el subject!');
+    subject.complete();
+  }
+
+  // Ejemplos de los distintos tipos de subject: *subject*, *behaviorSubject*, replaySubject, asyncSubject
+
+  // Observables fríos vs calientes (REPASAR POR CUENTA PROPIA)
 }
