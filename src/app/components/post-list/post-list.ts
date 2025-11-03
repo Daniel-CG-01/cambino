@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JsonplaceholderServiceTs } from '../../services/jsonplaceholder-service.ts.js';
+import { JsonplaceholderServiceTs } from '../../services/jsonplaceholder-service.js';
 import { Post } from '../../model/postInterface.js';
 
 @Component({

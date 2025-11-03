@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UsuarioServiceTs } from '../../services/usuario-service.ts';
+import { UsuarioService } from '../../services/usuario-service';
 import { User } from '../../model/userInterface.js';
 
 @Component({
@@ -12,7 +12,7 @@ export class UsuarioComponent {
 
   usuarios: User[] = [];
 
-  constructor(private oUsuarioService: UsuarioServiceTs) {
+  constructor(private oUsuarioService: UsuarioService) {
 
   }
 
@@ -27,7 +27,8 @@ export class UsuarioComponent {
     });
   }
 
-  verDatosUsuario() {
+  verDatosUsuario(user: User) {
     console.log('Datos del usuario...', user);
+    alert(`Usuario: ${user.name}\nUsername: ${user.username}\nEmail: ${user.email}\nTeléfono: ${user.phone}\nWeb: ${user.website}`);
   }
 }

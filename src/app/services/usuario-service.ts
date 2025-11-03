@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../model/userInterface';
 import { Observable } from 'rxjs';
@@ -5,9 +6,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioServiceTs {
+export class UsuarioService {
   
-  constructor() {
+  constructor(private oHttpClient: HttpClient) {
 
   }
 
