@@ -1,0 +1,9 @@
+<h2>Lista de Usuarios</h2>
+
+@for (item of usuarios; track $index) {
+    <div>
+        <h5>{{ item.email }} ({{ item.username }})</h5>
+        <p>Empresa: {{ item.company.name }}</p>
+        <button (click)="verDatosUsuario()">Ver datos de Usuario</button>
+    </div>
+}
