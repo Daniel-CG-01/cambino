@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AleatorioService } from '../services/aleatorio';
+import { AleatorioService } from '../../services/aleatorio';
 
 @Component({
   selector: 'app-aleatorio',

@@ -1,0 +1,10 @@
+<h1>Blog</h1>
+
+<ul>
+    @for (post of posts; track post.id) {
+        <li>
+            <h3>{{ post.title }} ({{ post.id }})</h3>
+            <p>{{ post.body }}</p>
+        </li>
+    }
+</ul>

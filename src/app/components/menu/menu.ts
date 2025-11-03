@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -8,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class Menu {
 
+  activeRoute: string = '';
+
+  constructor(private oRouter: Router) {
+    this.oRouter.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.activeRoute = event.url;
+      }
+    });
+  }
 }

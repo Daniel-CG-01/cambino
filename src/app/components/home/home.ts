@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AleatorioService } from '../services/aleatorio';
+import { AleatorioService } from '../../services/aleatorio';
 import { AleatorioComponent } from "../aleatorio/aleatorio";
 
 @Component({

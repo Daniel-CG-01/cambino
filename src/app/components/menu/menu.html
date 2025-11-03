@@ -7,29 +7,35 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" [class.active]="activeRoute === '/' || activeRoute === '/home'" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="ejer01">Primer Ejercicio</a>
+          <a class="nav-link" [class.active]="activeRoute === '/ejer01'" aria-current="page" href="ejer01">Primer Ejercicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="landing">Página de Landing</a>
+          <a class="nav-link" [class.active]="activeRoute === '/landing'" aria-current="page" href="landing">Página de Landing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="saludoenrutado">Saludo Enrutado</a>
+          <a class="nav-link" [class.active]="activeRoute === '/saludoenrutado'" aria-current="page" href="saludoenrutado">Saludo Enrutado</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="rx">RxJs</a>
+          <a class="nav-link" [class.active]="activeRoute === '/rx'" aria-current="page" href="rx">RxJs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="activeRoute === '/post'" aria-current="page" href="post">Blog</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Ejercicios
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="ejer01">Primer Ejercicio</a></li>
-            <li><a class="dropdown-item" href="landing">Página de Landing</a></li>
+            <li><a class="dropdown-item" href="ejer01" [class.active]="activeRoute === '/ejer01'">Primer Ejercicio</a></li>
+            <li><a class="dropdown-item" href="landing" [class.active]="activeRoute === '/landing'">Página de Landing</a></li>
+            <li><a class="dropdown-item" href="saludoenrutado" [class.active]="activeRoute === '/saludoenrutado'">Saludo Enrutado</a></li>
+            <li><a class="dropdown-item" href="rx" [class.active]="activeRoute === '/rx'">RxJs</a></li>
+            <li><a class="dropdown-item" href="post" [class.active]="activeRoute === '/post'">Blog</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="/" [class.active]="activeRoute === '/' || activeRoute === '/home'">Home</a></li>
           </ul>
         </li>
         <li class="nav-item">
