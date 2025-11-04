@@ -1,14 +1,13 @@
 <h2>Lista de Personajes</h2>
 
-<hr>
-
 @for (item of personajes; track $index) {
     <div>
-        <h4>Personaje: {{ item.name }}</h4>
-        <h5>Color de pelo: {{ item.hair_color }}</h5>
-        <h5>Color de piel: {{ item.skin_color }}</h5>
-        <h5>Año de nacimiento: {{ item.birth_year }}</h5>
-        <h5>Género: {{ item.gender }}</h5>
-        <hr>
+        <h5>Personaje: {{ item.name }}</h5>
+        <ul>
+            <li>Color de pelo: {{ item.hair_color }}</li>
+            <li>Color de piel: {{ item.skin_color }}</li>
+            <li>Año de nacimiento: {{ item.birth_year }}</li>
+            <li>Género: {{ item.gender }}</li>
+        </ul>
     </div>
 }
