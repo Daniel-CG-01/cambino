@@ -1,0 +1,8 @@
+<h2>Lista de Personajes</h2>
+
+@for (item of personajes; track $index) {
+    <div>
+        <h5>{{ item.name }}</h5>
+        <button (click)="verDatosPersonaje(item)">Ver datos de Personaje</button>
+    </div>
+}

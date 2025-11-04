@@ -7,16 +7,18 @@ import { Rxjscomponent } from './components/rxjscomponent/rxjscomponent';
 import { PadreComponent } from './components/padre/padre';
 import { PostListComponent } from './components/post-list/post-list';
 import { UsuarioComponent } from './components/usuario/usuario';
+import { PersonajeComponent } from './components/personaje/personaje';
 
 export const routes: Routes = [
-    {path: '', component: Home},
-    {path: 'home', component: Home},
-    {path: 'landing', component: Landing},
-    {path: 'ejer01', component: Ejercicio01Clase},
-    {path: 'saludoenrutado', component: SaludoEnrutado},
-    {path: 'saludoenrutado/:nombre', component: SaludoEnrutado},
-    {path: 'rx', component: Rxjscomponent},
-    {path: 'padre', component: PadreComponent},
-    {path: 'post', component: PostListComponent},
-    {path: 'usuario', component: UsuarioComponent}
+  { path: '', component: Home },
+  { path: 'home', component: Home },
+  { path: 'landing', component: Landing },
+  { path: 'ejer01', component: Ejercicio01Clase },
+  { path: 'saludoenrutado', component: SaludoEnrutado },
+  { path: 'saludoenrutado/:nombre', component: SaludoEnrutado },
+  { path: 'rx', component: Rxjscomponent },
+  { path: 'padre', component: PadreComponent },
+  { path: 'post', component: PostListComponent },
+  { path: 'usuario', component: UsuarioComponent },
+  { path: 'personaje', component: PersonajeComponent },
 ];

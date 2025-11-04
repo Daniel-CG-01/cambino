@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../../services/usuario-service';
-import { User } from '../../model/userInterface.js';
+import { User } from '../../model/userInterface';
 
 @Component({
   selector: 'app-usuario',
@@ -8,6 +8,7 @@ import { User } from '../../model/userInterface.js';
   templateUrl: './usuario.html',
   styleUrl: './usuario.css',
 })
+
 export class UsuarioComponent {
 
   usuarios: User[] = [];
