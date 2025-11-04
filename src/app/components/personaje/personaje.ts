@@ -27,9 +27,4 @@ export class PersonajeComponent {
       this.personajes = pers;
     });
   }
-  
-  verDatosPersonaje(pers: Personaje) {
-    console.log('Datos del personaje...', pers);
-    alert(`Personaje: ${pers.name}\nColor de pelo: ${pers.hair_color}\nColor de piel: ${pers.skin_color}\nAño de nacimiento: ${pers.birth_year}\nGénero: ${pers.gender}\nPlaneta: ${pers.homeworld}`);
-  }
 }

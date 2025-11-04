@@ -1,8 +1,14 @@
 <h2>Lista de Personajes</h2>
 
+<hr>
+
 @for (item of personajes; track $index) {
     <div>
-        <h5>{{ item.name }}</h5>
-        <button (click)="verDatosPersonaje(item)">Ver datos de Personaje</button>
+        <h4>Personaje: {{ item.name }}</h4>
+        <h5>Color de pelo: {{ item.hair_color }}</h5>
+        <h5>Color de piel: {{ item.skin_color }}</h5>
+        <h5>Año de nacimiento: {{ item.birth_year }}</h5>
+        <h5>Género: {{ item.gender }}</h5>
+        <hr>
     </div>
 }

@@ -5,5 +5,4 @@ export interface Personaje {
     eye_color: string;
     birth_year: string;
     gender: string;
-    homeworld: string;
 }
