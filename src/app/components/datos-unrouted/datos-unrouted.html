@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Datos del Usuario</h2>
+
+            <h5>Aquí se presentarán los datos del usuario</h5>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ oUsuario.name }}</td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td>{{ oUsuario.username }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ oUsuario.email }}</td>
+                </tr>
+                <tr>
+                    <th>Ciudad</th>
+                    <td>{{ oUsuario.address.city }}</td>
+                </tr>
+                <tr>
+                    <th>Empresa</th>
+                    <td>{{ oUsuario.company }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

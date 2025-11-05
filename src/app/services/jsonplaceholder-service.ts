@@ -15,4 +15,8 @@ export class JsonplaceholderServiceTs {
   getAllPosts():Observable<Post[]> {
     return this.oHTTPClient.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
   }
+
+  // getAllPosts():Observable<Post[]> {
+  //   return this.oHTTPClient.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
+  // }
 }

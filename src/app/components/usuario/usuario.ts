@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UsuarioService } from '../../services/usuario-service';
 import { User } from '../../model/userInterface';
+import { MatDialog } from '@angular/material/dialog';
+import { DatosUnrouted } from '../datos-unrouted/datos-unrouted';
 
 @Component({
   selector: 'app-usuario',
@@ -13,7 +15,11 @@ export class UsuarioComponent {
 
   usuarios: User[] = [];
 
-  constructor(private oUsuarioService: UsuarioService) {
+  // Hay dos formas de inyectar un "dialog", por comando o en el constructor
+
+  oMatDialog = inject (MatDialog);
+
+  constructor(private oUsuarioService: UsuarioService) { // oMatDialog: MatDialog
 
   }
 
@@ -29,7 +35,15 @@ export class UsuarioComponent {
   }
 
   verDatosUsuario(user: User) {
-    console.log('Datos del usuario...', user);
-    alert(`Usuario: ${user.name}\nUsername: ${user.username}\nEmail: ${user.email}\nTeléfono: ${user.phone}\nWeb: ${user.website}`);
+    // console.log('Datos del usuario...', user);
+    // alert(`Usuario: ${user.name}\nUsername: ${user.username}\nEmail: ${user.email}\nTeléfono: ${user.phone}\nWeb: ${user.website}`);
+
+    this.oMatDialog.open(DatosUnrouted, {
+      height: '400px',
+      width: '600px',
+      data: {
+        usuario: user.id,
+      }
+    });
   }
 }
