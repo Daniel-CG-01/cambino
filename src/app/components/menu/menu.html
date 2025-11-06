@@ -30,6 +30,9 @@
         <li class="nav-item">
           <a class="nav-link" [class.active]="activeRoute === '/personaje'" aria-current="page" href="personaje">Personajes de Star Wars</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="activeRoute === '/mostrar-usuario'" aria-current="page" href="mostrar-usuario">Seleccionar Usuario</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Ejercicios
@@ -42,6 +45,7 @@
             <li><a class="dropdown-item" href="post" [class.active]="activeRoute === '/post'">Blog</a></li>
             <li><a class="dropdown-item" href="usuario" [class.active]="activeRoute === '/usuario'">Usuario</a></li>
             <li><a class="dropdown-item" href="personaje" [class.active]="activeRoute === '/personaje'">Personajes de Star Wars</a></li>
+            <li><a class="dropdown-item" href="mostrar-usuario" [class.active]="activeRoute === '/mostrar-usuario'">Seleccionar Usuario</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/" [class.active]="activeRoute === '/' || activeRoute === '/home'">Home</a></li>
           </ul>

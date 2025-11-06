@@ -1,0 +1,13 @@
+<p>Elige un usuario y muestra sus datos</p>
+
+<button (click)="selectUser()">Seleccionar Usuario</button><br>
+
+@if (oSelectedUser) {
+  <h3>Usuario seleccionado:</h3>
+  <p>Nombre: {{ oSelectedUser.name }}</p>
+  <p>Correo: {{ oSelectedUser.email }}</p>
+  <p>Teléfono: {{ oSelectedUser.phone }}</p>
+  <p>Website: {{ oSelectedUser.website }}</p>
+} @else {
+  <p>No se ha seleccionado ningún usuario.</p>
+}

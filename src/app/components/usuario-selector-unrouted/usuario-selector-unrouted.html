@@ -1,0 +1,26 @@
+<div class="container p-3">
+    <div class="row">
+        <div class="col">
+            <h3>Selección de Usuario</h3>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (user of users; track user.id) {
+                    <tr>
+                        <td>{{ user.name }} ({{ user.id }})</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="selectUser(user)">Seleccionar</button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

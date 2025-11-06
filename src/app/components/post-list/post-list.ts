@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JsonplaceholderServiceTs } from '../../services/jsonplaceholder-service.js';
+import { JsonplaceholderService } from '../../services/jsonplaceholder-service.js';
 import { Post } from '../../model/postInterface.js';
 
 @Component({
@@ -12,7 +12,7 @@ export class PostListComponent {
 
   posts: Post[] = [];
 
-  constructor(private oJsonplaceholderServiceTs: JsonplaceholderServiceTs) {
+  constructor(private oJsonplaceholderServiceTs: JsonplaceholderService) {
     
   }
 

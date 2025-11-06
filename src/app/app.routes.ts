@@ -8,6 +8,7 @@ import { PadreComponent } from './components/padre/padre';
 import { PostListComponent } from './components/post-list/post-list';
 import { UsuarioComponent } from './components/usuario/usuario';
 import { PersonajeComponent } from './components/personaje/personaje';
+import { MostrarUsuario } from './components/mostrar-usuario/mostrar-usuario';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -21,4 +22,5 @@ export const routes: Routes = [
   { path: 'post', component: PostListComponent },
   { path: 'usuario', component: UsuarioComponent },
   { path: 'personaje', component: PersonajeComponent },
+  { path: 'mostrar-usuario', component: MostrarUsuario }
 ];

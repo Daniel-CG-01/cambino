@@ -2,11 +2,9 @@
 
 @for (item of usuarios; track $index) {
     <div>
-        <h5>{{ item.email }} ({{ item.username }})</h5>
+        <h5>{{ item.name }} ({{ item.username }})</h5>
         <p>Empresa: {{ item.company.name }}</p>
         <button (click)="verDatosUsuario(item)">Ver datos de Usuario</button>
-        
-        <!-- AÑADIR UN BOTÓN -->
-        
+        <button (click)="verDatosUsuario2(item)">Ver datos de Usuario (pasando solo el id)</button>
     </div>
 }
